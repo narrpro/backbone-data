@@ -6,9 +6,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors')
 
-
-
-
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 
@@ -24,6 +21,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/', require('./routes/index'));
+app.use('/api/movies', require('./routes/movies'));
 app.use('/api', require('./routes/api'));
 app.use('/user', require('./routes/api/user'));
 // app.use('/mysql', require('./routes'));
